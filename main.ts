@@ -3,10 +3,10 @@
  */
 
 /**
- * PCF2129 block
+ * mcp79410 block
  */
 //% weight=10 color=#800000 icon="\uf017" block="PCF2129"
-namespace PCF2129 {
+namespace mcp79410 {
     let I2C_ADDR = 0x6f
     let REG_CTRL = 0x07
     let REG_SECOND = 0x00
