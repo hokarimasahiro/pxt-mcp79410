@@ -5,7 +5,7 @@
 /**
  * mcp79410 block
  */
-//% weight=10 color=#800000 icon="\uf017" block="PCF2129"
+//% weight=10 color=#800000 icon="\uf017" block="mcp79410"
 namespace mcp79410 {
     let I2C_ADDR = 0x6f
     let REG_CTRL = 0x07
