@@ -265,9 +265,33 @@ namespace mcp79410 {
      * @param ad address of EEPROM, eg: 0
      */
     //% blockId="getEEPROM" block="get EEPROM address=%ad"
-    //% weight=60 blockGap=8
+    //% weight=58 blockGap=8
     export function getEEPROM(ad: number): number {
         pins.i2cWriteNumber(EEPROM_ADDR, ad, NumberFormat.UInt8BE);
         return pins.i2cReadNumber(EEPROM_ADDR, NumberFormat.UInt8BE);
+    }
+    /**
+     * set RTC
+     * @param ad address of RTC, eg: 0
+     * @param dat data of RTC, eg: 0xaa
+     */
+    //% blockId="setRTC" block="set RTC address=%ad data=%dat"
+    //% weight=50 blockGap=8
+    export function setRTC(ad: number, dat: number): void {
+        let buf = pins.createBuffer(2);
+        buf[0] = ad;
+        buf[1] = dat;
+        pins.i2cWriteBuffer(I2C_ADDR, buf);
+    }
+
+    /**
+     * get RTC
+     * @param ad address of RTC, eg: 0
+     */
+    //% blockId="getRTC" block="get RTC address=%ad"
+    //% weight=48 blockGap=8
+    export function getRTC(ad: number): number {
+        pins.i2cWriteNumber(I2C_ADDR, ad, NumberFormat.UInt8BE);
+        return pins.i2cReadNumber(I2C_ADDR, NumberFormat.UInt8BE);
     }
 }
